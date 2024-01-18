@@ -1,5 +1,8 @@
 package thread.utils;
 public class SleepThread extends Thread {
+    public SleepThread() {
+        super();
+    }
     public SleepThread(String name) {
         super(name);
     }
@@ -8,7 +11,7 @@ public class SleepThread extends Thread {
     public void run() {
         System.out.println("Hello, I'm " + getName());
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
