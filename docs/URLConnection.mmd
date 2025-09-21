@@ -1,0 +1,22 @@
+classDiagram
+    class URLConnection {
+        <<abstract>>
+%%        +String name
+%%        +int age
+%%        +void makeSound()
+    }
+
+    class HttpURLConnection {
+        <<abstract>>
+%%        +String breed
+%%        +void fetch()
+    }
+    class JarURLConnection {
+        <<abstract>>
+%%        +String color
+%%        +void scratch()
+    }
+
+    URLConnection <|-- HttpURLConnection : extends
+    URLConnection <|-- JarURLConnection : extends
+
