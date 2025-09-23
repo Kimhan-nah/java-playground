@@ -1,0 +1,61 @@
+classDiagram
+    class ServletRequest {
+        <<interface>>
+    }
+
+    class HttpServletRequest {
+        <<interface>>
+    }
+
+    class HttpServletRequestWrapper {
+    }
+
+    class Servlet {
+        <<interface>>
+    }
+
+    class ServletConfig {
+        <<interface>>
+    }
+
+    class GenericServlet {
+        <<abstract>>
+    }
+
+    class HttpServlet {
+        <<abstract>>
+        - void service()
+        - void doGet()
+        - void doPost()
+        - void doPut()
+        - void doDelete()
+        - void doHead()
+        - void doOptions()
+        - void doTrace()
+    }
+
+    class ServletResponse {
+        <<interface>>
+    }
+
+    class HttpServletResponse {
+        <<interface>>
+    }
+
+    class HttpServletResponseWrapper {
+    }
+
+    ServletRequest <|-- HttpServletRequest : extends
+    HttpServletRequest <|.. HttpServletRequestWrapper : implements
+
+    Servlet <|.. GenericServlet : implements
+    ServletConfig <|.. GenericServlet : implements
+    HttpServletRequest <.. HttpServlet
+
+    GenericServlet <|-- HttpServlet : extends
+    ServletResponse <|-- HttpServletResponse : extends
+    HttpServletResponse <|.. HttpServletResponseWrapper : implements
+
+    HttpServletResponse <.. HttpServlet
+%%    HttpServletRequestWrapper --> HttpServletRequest
+
