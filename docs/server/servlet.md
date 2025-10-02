@@ -43,6 +43,10 @@ classDiagram
     class ServletConfig {
         <<interface>>
     }
+    
+     class Serializable {
+        <<interface>>
+     }
 
     class GenericServlet {
         <<abstract>>
@@ -90,6 +94,7 @@ classDiagram
 
     Servlet <|.. GenericServlet : implements
     ServletConfig <|.. GenericServlet : implements
+    Serializable <|.. GenericServlet : implements
     HttpServletRequest <.. HttpServlet
 
     GenericServlet <|-- HttpServlet : extends
@@ -109,3 +114,14 @@ classDiagram
     SpringFramework : FrameworkServlet
     SpringFramework : DispatcherServlet
 ```
+
+### ServletConfig
+> 서블릿의 초기화 파라미터를 설정하는 역할
+
+
+### ServletContext
+> 웹 애플리케이션의 컨텍스트
+
+> 웹 애플리케이션의 정보를 담고 있는 객체
+
+> 서블릿 간에 정보를 공유할 때 사용
